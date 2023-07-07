@@ -1,2 +1,2 @@
-require('henry.configs')
-require('henry.keybindings')
+require('henry.keymaps')
+require('henry.options')
