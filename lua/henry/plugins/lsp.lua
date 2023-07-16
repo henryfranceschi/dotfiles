@@ -86,5 +86,11 @@ return {
                 end
             })
         end
-    }
+    },
+    {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        dependencies = { 'williamboman/mason-lspconfig.nvim' },
+        opts = {},
+    },
 }
