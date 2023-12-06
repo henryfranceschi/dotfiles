@@ -8,6 +8,7 @@ return {
         dependencies = {
             'williamboman/mason.nvim',
             'neovim/nvim-lspconfig',
+            { 'folke/neoconf.nvim', optional = true },
             { 'folke/neodev.nvim', optional = true },
         },
         config = function()
