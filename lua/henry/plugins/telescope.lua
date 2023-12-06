@@ -11,6 +11,8 @@ return {
             vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
             vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+            vim.keymap.set('n', '<leader>fds', builtin.lsp_document_symbols, {})
+            vim.keymap.set('n', '<leader>fws', builtin.lsp_workspace_symbols, {})
         end,
     }
 }
