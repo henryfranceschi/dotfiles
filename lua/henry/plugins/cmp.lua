@@ -5,8 +5,27 @@ return {
             'rafamadriz/friendly-snippets',
         },
         config = function ()
+            local types = require("luasnip.util.types")
+
             -- This is required to get friendly-snippets to work with luasnip.
             require('luasnip.loaders.from_vscode').lazy_load()
+            require('luasnip').setup({
+                ext_opts = {
+                    [types.insertNode] = {
+                        unvisited = {
+                            virt_text = { { '|', 'Conceal' } },
+                            -- virt_text_pos = 'inline',
+                        },
+                    },
+                    -- Add this to also have a placeholder in the final tabstop. 
+                    [types.exitNode] = {
+                        unvisited = {
+                            virt_text = { { '|', 'Conceal' } },
+                            -- virt_text_pos = 'inline',
+                        },
+                    },
+                }
+            })
         end
     },
     {
@@ -53,7 +72,7 @@ return {
                             cmp.select_next_item()
                             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
                             -- they way you will only jump inside the snippet region
-                        elseif luasnip.expand_or_jumpable() then
+                        elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif has_words_before() then
                             cmp.complete()
