@@ -81,9 +81,12 @@ return {
                     vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, opts)
                     vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, opts)
                     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
-                    vim.keymap.set('n', '<leader>vf', function()
-                        vim.lsp.buf.format()
-                    end, opts)
+                    vim.keymap.set('n', '<leader>vf', vim.lsp.buf.format, opts)
+
+                    -- C/C++ specific key maps.
+                    if (client_is_active('clangd')) then
+                        vim.keymap.set('n', '<leader>sh', '<cmd>ClangdSwitchSourceHeader<cr>')
+                    end
                 end
             })
         end
