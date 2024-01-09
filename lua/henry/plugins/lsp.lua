@@ -20,11 +20,11 @@ return {
                 capabilities = require('cmp_nvim_lsp').default_capabilities()
             end
 
-            -- Automatically setup language servers installed via mason. 
+            -- Automatically setup language servers installed via mason.
             require('mason-lspconfig').setup_handlers {
                 -- The default handler that will be used for all installed language servers that do
                 -- not have a dedicated handler.
-                function (server_name)
+                function(server_name)
                     require('lspconfig')[server_name].setup {
                         capabilities = capabilities
                     }
@@ -44,7 +44,7 @@ return {
                         },
                     }
                 end,
-                ['rust_analyzer'] = function ()
+                ['rust_analyzer'] = function()
                     require('lspconfig').rust_analyzer.setup {
                         capabilities = capabilities,
                         settings = {
@@ -54,14 +54,14 @@ return {
                                 },
                                 format = {
                                     command = 'fmt'
-                                }
-                            }
-
-                        }
+                                },
+                            },
+                        },
                     }
                 end
             }
 
+            -- Key maps.
             local function client_is_active(name)
                 local clients = vim.lsp.get_active_clients();
 
@@ -78,7 +78,6 @@ return {
             vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
 
-            -- Thing, something else, another thing.
             -- Only map keys after the language server attaches to the current buffer.
             vim.api.nvim_create_autocmd('LspAttach', {
                 callback = function(args)
