@@ -62,6 +62,18 @@ return {
                 end
             }
 
+            local function client_is_active(name)
+                local clients = vim.lsp.get_active_clients();
+
+                for _, client in pairs(clients) do
+                    if client['name'] == name then
+                        return true
+                    end
+                end
+
+                return false
+            end
+
             vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
