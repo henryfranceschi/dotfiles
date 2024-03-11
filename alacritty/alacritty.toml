@@ -2,3 +2,6 @@ import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 
 [font.normal]
 family = "Fira Code Nerd Font"
+
+[keyboard]
+bindings = [{ key = "F11", action = "ToggleFullscreen"}]
