@@ -1,25 +1,14 @@
-require('henry')
+require("config")
 
--- Disable unused providers
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
--- Setup plugin manager
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+vim.cmd.colorscheme "catppuccin"
 
-require('lazy').setup('henry.plugins')
+-- vim.lsp.config("*", {
+--     capabilities = vim.lsp.protocol.make_client_capabilities()
+-- })
 
-vim.cmd.colorscheme 'catppuccin'
+-- Extend the config.
+-- vim.lsp.config('rust_analyzer', {})
+-- vim.lsp.enable('rust_analyzer')
