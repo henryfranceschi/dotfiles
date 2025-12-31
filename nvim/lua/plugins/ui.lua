@@ -1,5 +1,5 @@
 ---@module "lazy"
----@type LazyPluginSpecHandlers[]
+---@type LazyPluginSpec[]
 return {
     {
         "nvim-lualine/lualine.nvim",
